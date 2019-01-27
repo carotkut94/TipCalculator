@@ -100,7 +100,7 @@
             <TextView
                     android:id="@+id/tip_amount_label"
                     android:textAlignment="center"
-                    android:text="@string/check"
+                    android:text="@string/tip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -122,7 +122,7 @@
             <TextView
                     android:id="@+id/grand_total_label"
                     android:textAlignment="center"
-                    android:text="@string/check"
+                    android:text="@string/total"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 

@@ -2,4 +2,6 @@
     <string name="app_name">Tip</string>
     <string name="check">Check</string>
     <string name="tip_percentage">Tip Percentage</string>
+    <string name="total">Total</string>
+    <string name="tip">Tip</string>
 </resources>
