@@ -6,7 +6,7 @@ import com.death.tip.R
 import com.death.tip.model.Calculator
 import com.death.tip.model.TipCalculation
 
-class CalculatorViewModel(val app: Application, private val calculator:Calculator = Calculator()) : BaseObservable() {
+class CalculatorViewModel @JvmOverloads constructor(app: Application, private val calculator:Calculator = Calculator()) : ObservableViewModel(app) {
 
     var inputCheckAmount = ""
     var inputTipPercentage = ""
@@ -22,9 +22,9 @@ class CalculatorViewModel(val app: Application, private val calculator:Calculato
     }
 
     private fun updateOutputs(tc: TipCalculation){
-        outputCheckAmount = app.getString(R.string.dollar_amount, tc.checkAmount)
-        outputTipAmount = app.getString(R.string.dollar_amount, tc.tipAmount)
-        outputTotalAmount = app.getString(R.string.dollar_amount, tc.grandTotal)
+        outputCheckAmount = getApplication<Application>().getString(R.string.dollar_amount, tc.checkAmount)
+        outputTipAmount = getApplication<Application>().getString(R.string.dollar_amount, tc.tipAmount)
+        outputTotalAmount = getApplication<Application>().getString(R.string.dollar_amount, tc.grandTotal)
     }
 
     fun calculateTip(){
@@ -34,15 +34,8 @@ class CalculatorViewModel(val app: Application, private val calculator:Calculato
 
         if(checkAmount!=null && tipPct!=null){
             updateOutputs(calculator.calculateTip(checkAmount, tipPct))
-            clearInputs()
+            notifyChange()
         }
-
-    }
-
-    private fun clearInputs() {
-        inputTipPercentage = ""
-        inputCheckAmount = ""
-        notifyChange()
     }
 
 }
