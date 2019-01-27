@@ -12,4 +12,4 @@ New Material Components
 ![Screen 3](https://github.com/carotkut94/TipCalculator/blob/master/arts/3.jpg)
 
 
-Proudly written in Kotlin 💪
+> Proudly written in Kotlin 💪
