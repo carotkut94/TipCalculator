@@ -4,4 +4,6 @@
     <string name="tip_percentage">Tip Percentage</string>
     <string name="total">Total</string>
     <string name="tip">Tip</string>
+
+    <string name="dollar_amount">$%1$.02f</string>
 </resources>
