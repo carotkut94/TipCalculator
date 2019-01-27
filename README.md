@@ -1,7 +1,7 @@
 # TipCalculator
-A simple android application wrote by keeping MVVM in mind
-Uses AndroidX, LiveData, DataBinding
-Testcases are written using Mockito and JUnit
+> A simple android application wrote by keeping MVVM in mind
+> Uses AndroidX, LiveData, DataBinding
+> Testcases are written using Mockito and JUnit
 New Material Components
 
 ## Screenshots
