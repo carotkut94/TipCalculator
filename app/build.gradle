@@ -36,6 +36,7 @@ dependencies {
 
     kapt "com.andorid.databinding:compiler:$android_plugin"
     implementation "androidx.lifecycle:lifecycle-extensions:$arch_comp"
+    implementation "androidx.arch.core:core-testing:$arch_comp"
 
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
