@@ -2,7 +2,7 @@ package com.death.tip.model
 
 import java.math.RoundingMode
 
-class RestrauntCalculator{
+class Calculator{
     fun calculateTip(checkAmount: Double, tipPct: Int): TipCalculation{
 
         val tipAmount = (checkAmount * (tipPct.toDouble() / 100.0))

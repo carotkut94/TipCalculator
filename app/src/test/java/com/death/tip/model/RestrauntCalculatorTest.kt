@@ -6,11 +6,11 @@ import org.junit.Test
 
 class RestrauntCalculatorTest {
 
-    lateinit var calculator: RestrauntCalculator
+    lateinit var calculator: Calculator
 
     @Before
     fun setup() {
-        calculator = RestrauntCalculator()
+        calculator = Calculator()
     }
 
     @Test
