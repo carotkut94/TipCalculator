@@ -1,5 +1,5 @@
 # TipCalculator
-> A simple android application wrote by keeping MVVM in mind
+> A simple android application to calculate Tip to be given on a check by specifying the tip percentage, written by keeping MVVM in mind
 
 > Uses AndroidX, LiveData, DataBinding
 
