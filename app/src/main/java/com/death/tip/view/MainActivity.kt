@@ -11,7 +11,8 @@ import com.death.tip.R
 import com.death.tip.viewmodel.CalculatorViewModel
 import com.google.android.material.snackbar.Snackbar
 
-class MainActivity : AppCompatActivity(), SaveDialogFragment.Callback {
+class MainActivity : AppCompatActivity(), SaveDialogFragment.Callback, LoadDialogFragment.Callback {
+
 
     lateinit var binding: com.death.tip.databinding.ActivityMainBinding
 
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity(), SaveDialogFragment.Callback {
     }
 
     override fun onSaveTip(name: String) {
+        binding.vm?.saveCurrentTip(name)
         Snackbar.make(binding.root, "Saved $name", Snackbar.LENGTH_SHORT).show()
     }
 
@@ -37,6 +39,10 @@ class MainActivity : AppCompatActivity(), SaveDialogFragment.Callback {
                 showSaveDialog()
                 true
             }
+            R.id.action_load ->{
+                showLoadDialog()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -44,6 +50,16 @@ class MainActivity : AppCompatActivity(), SaveDialogFragment.Callback {
     private fun showSaveDialog() {
         val saveDialogFragment = SaveDialogFragment()
         saveDialogFragment.show(supportFragmentManager,"SaveDialog")
+    }
+
+    private fun showLoadDialog() {
+        val loadDialogFragment = LoadDialogFragment()
+        loadDialogFragment.show(supportFragmentManager,"LoadDialog")
+    }
+
+    override fun onTipSelected(name: String) {
+        binding.vm?.loadTipCalculation(name)
+        Snackbar.make(binding.root, "Loaded $name", Snackbar.LENGTH_SHORT).show()
     }
 }
 

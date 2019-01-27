@@ -1,26 +1,37 @@
 package com.death.tip.model
 
+import androidx.lifecycle.LiveData
 import java.math.RoundingMode
 
-class Calculator{
-    fun calculateTip(checkAmount: Double, tipPct: Int): TipCalculation{
+class Calculator(val repository: TipCalculationRepository = TipCalculationRepository()) {
+
+    fun calculateTip(checkAmount: Double, tipPct: Int) : TipCalculation {
 
         val tipAmount = (checkAmount * (tipPct.toDouble() / 100.0))
             .toBigDecimal()
-            .setScale(2,RoundingMode.HALF_UP)
+            .setScale(2, RoundingMode.HALF_UP)
             .toDouble()
 
         val grandTotal = checkAmount + tipAmount
-        return  TipCalculation(
+
+        return TipCalculation(
             checkAmount = checkAmount,
-            grandTotal = grandTotal,
             tipPct = tipPct,
-            tipAmount = tipAmount
+            tipAmount = tipAmount,
+            grandTotal = grandTotal
         )
     }
 
-    fun saveTipCalculation(tipToSave: TipCalculation) {
-        val repository = TipCalculationRepository()
-        repository.saveTipCalculation(tipToSave)
+    fun saveTipCalculation(tc: TipCalculation) {
+        repository.saveTipCalculation(tc)
     }
+
+    fun loadTipCalculationByLocationName(locationName: String) : TipCalculation? {
+        return repository.loadTipCalculationByName(locationName)
+    }
+
+    fun loadSavedTipCalculations() : LiveData<List<TipCalculation>> {
+        return repository.loadSavedTipCalculation()
+    }
+
 }
