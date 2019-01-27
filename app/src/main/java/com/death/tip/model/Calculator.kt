@@ -18,4 +18,9 @@ class Calculator{
             tipAmount = tipAmount
         )
     }
+
+    fun saveTipCalculation(tipToSave: TipCalculation) {
+        val repository = TipCalculationRepository()
+        repository.saveTipCalculation(tipToSave)
+    }
 }
